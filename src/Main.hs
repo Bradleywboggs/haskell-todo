@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
 
 module Main where
@@ -8,10 +7,6 @@ import Data.Char (toLower)
 import System.IO 
 
 import Data.Aeson
-import GHC.Generics
-import Data.Aeson (FromJSON, ToJSON)
-
-import Data.List (find)
 import Data.Maybe
 import GHC.Base (when)
 import Todo
@@ -24,18 +19,6 @@ main = do
         "show" -> display
         "clear" -> clearTodoList
         _     -> putStrLn "nope" 
-
-    -- NEXT TASK: Add json decode/encode to the TodoItem type
-    -- todo app
-    -- read args to determine mode
-    -- ADD
-    -- read, add, edit, check-off, cleanup (dates-- defaults to all prior), 
-        -- determine todays date on launch
-        -- if we already have a task list, open the file
-        -- take a project, description and a title and a urgency level (low priority, normal, high priority)
-        -- onSave
-        --  iterates through the existing file and inserts the new task under the project heading and places it by priorty
-
 
 clearTodoList :: IO ()
 clearTodoList = do

@@ -3,16 +3,10 @@
 
 module Todo where
 
-import System.Environment ( getArgs, getEnv ) 
-import Data.Char (toLower)
-import System.IO 
-
 import GHC.Generics
 import Data.Aeson (FromJSON, ToJSON)
-
 import Data.List (find)
 import Data.Maybe
-import GHC.Base (when)
 
 
 class Named a where
@@ -110,6 +104,6 @@ infix 6 <..>
 (<..>) [] [] = []
 (<..>) [] ns' = ns'
 (<..>) ns [] = ns
-(<..>) ns (n': ns') 
-      | hasN n' ns =  (ns <.> n) <..> ns'
-      | otherwise  = (n' : ns) <..> ns'
+(<..>) ns (n: ns') 
+      | hasN n ns =  (ns <.> n) <..> ns'
+      | otherwise  = (n : ns) <..> ns'
