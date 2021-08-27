@@ -7,10 +7,10 @@ import Data.Char (toLower)
 import System.IO 
 
 import Data.Aeson
+    ( decodeFileStrict, encodeFile, FromJSON, ToJSON )
 import Data.Maybe
 import GHC.Base (when)
-import Todo
-
+import Data.Todo
 main :: IO ()
 main = do
     (cmd: _) <- getArgs
